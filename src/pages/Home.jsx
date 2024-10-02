@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../components/Button"
 import FeatureCard from "../components/FeatureCard"
 
@@ -34,12 +35,10 @@ const CheckCircle = ({ className }) => (
     />
   </svg>
 );
-
-
-export default function Home() {
+export function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="flex items-center justify-between p-4 bg-white">
+    <div className="home">
+      <header className="flex items-center justify-between p-4 bg-white fixed top-0 w-screen">
         <div className="text-2xl font-bold text-blue-600">GiveSheep</div>
         <nav className="hidden md:flex space-x-4">
           <a href="#" className="text-gray-600 hover:text-blue-600">회사 소개</a>
@@ -47,7 +46,7 @@ export default function Home() {
           <a href="#" className="text-gray-600 hover:text-blue-600">기부 영수증</a>
           <a href="#" className="text-gray-600 hover:text-blue-600">자주 묻는 질문</a>
         </nav>
-        <Button variant="outline">로그인</Button>
+        <Button as={Link} to="/login">로그인</Button>
       </header>
 
       <main className="flex-grow">
@@ -55,7 +54,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-bold mb-6">QR코드로 Give도 쉽게! 기부영수증도 쉽게!</h1>
           <p className="text-xl mb-8">종교 단체, 공익 단체에 기부하고 세액 공제까지 한번에 받으세요</p>
           <div className="flex justify-center space-x-4">
-            <Button className="px-8">시작하기</Button>
+            <Button as={Link} to="/login" className="px-8">시작하기</Button>
             <Button variant="outline" className="px-8">더 알아보기</Button>
           </div>
         </section>
@@ -64,23 +63,23 @@ export default function Home() {
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             <FeatureCard
               icon={<Smartphone className="w-10 h-10 text-blue-600" />}
-              title="Mobile Banking"
-              description="Manage your finances anytime, anywhere with our user-friendly mobile app."
+              title="QR코드로 기부하기"
+              description="QR코드로 빠르고 편리하게 기부해요"
             />
             <FeatureCard
               icon={<CreditCard className="w-10 h-10 text-blue-600" />}
-              title="Easy Payments"
-              description="Make secure and quick payments with just a few taps."
+              title="기부 영수증 발급"
+              description="기부 영수증을 쉽게 발급받고 세액공제를 받아요"
             />
             <FeatureCard
               icon={<Shield className="w-10 h-10 text-blue-600" />}
-              title="Secure Transactions"
-              description="Your security is our top priority. Enjoy peace of mind with our advanced security measures."
+              title="안전한 기부"
+              description="Toss와 카카오톡을 통해 안전하게 기부할 수 있어요"
             />
             <FeatureCard
               icon={<CheckCircle className="w-10 h-10 text-blue-600" />}
-              title="Verified Services"
-              description="All our services are verified and comply with the highest industry standards."
+              title="검증된 단체"
+              description="기부 단체의 신원을 검증하고 기부 영수증을 발급해요"
             />
           </div>
         </section>
@@ -94,6 +93,50 @@ export default function Home() {
             </div> */}
           </div>
         </section>
+
+        <section className="additional-services">
+          <h2 className="services-title">더 쉽고 안전한 기부 경험</h2>
+          <div className="services-container">
+            <div className="service-item">
+              <img src="./images/sheep_give.webp" alt="QR코드로 기부하기" width={600}/>
+              <h3>QR코드로 기부하기</h3>
+              <p>스마트폰으로 QR코드를 스캔하여 몇 초 만에 기부를 완료하세요. 언제 어디서나 간편하게 나눔에 동참할 수 있습니다.</p>
+            </div>
+            <div className="service-item">
+              <img src="./images/sheep_tax.webp" alt="기부영수증 발급" width={600}/>
+              <h3>기부영수증 발급</h3>
+              <p>모든 기부에 대해 자동으로 기부영수증을 발급해 드립니다. 연말정산 시 손쉽게 제출하고 세제 혜택을 받으세요.</p>
+            </div>
+            <div className="service-item">
+              <img src="./images/sheep_secure.webp" alt="안전한 기부" width={600}/>
+              <h3>안전한 기부</h3>
+              <p>최신 보안 기술을 적용하여 개인정보와 결제 정보를 안전하게 보호합니다. 믿고 기부할 수 있는 환경을 제공합니다.</p>
+            </div>
+            <div className="service-item">
+              <img src="./images/sheep_certified.webp" alt="검증된 단체" width={600}/>
+              <h3>검증된 단체</h3>
+              <p>엄격한 심사를 거친 신뢰할 수 있는 기부 단체들만 선별하여 소개합니다. 투명하고 효과적인 기부 활동을 보장합니다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="card-section py-16 px-4">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div className="card">
+              <h3>제품</h3>
+              <p>기부를 더 쉽고 편리하게 만드는 혁신적인 제품들을 제공합니다. QR코드 기부, 자동 영수증 발급 등 다양한 기능으로 기부 경험을 개선합니다.</p>
+            </div>
+            <div className="card">
+              <h3>시스템</h3>
+              <p>안전하고 투명한 기부 시스템을 구축했습니다. 블록체인 기술을 활용한 기부 내역 관리, 실시간 모금 현황 공개 등으로 신뢰성을 높입니다.</p>
+            </div>
+            <div className="card">
+              <h3>철학</h3>
+              <p>모든 이의 작은 나눔이 세상을 변화시킬 수 있다고 믿습니다. 우리는 기부의 문턱을 낮추고, 나눔의 가치를 널리 전파하는 것을 목표로 합니다.</p>
+            </div>
+          </div>
+        </section>
+
       </main>
 
       <footer className="bg-gray-800 text-white py-8 px-4">
@@ -136,6 +179,7 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
+export default Home;

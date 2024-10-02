@@ -1,3 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.additional-services {
+  background-color: #f8f9fa;
+}
+
+.services-title {
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 2rem 0;
+  color: #333;
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa;
+  z-index: 10;
+}
+
+.services-container {
+  min-height: calc(400vh - 6rem); /* 최소 높이 설정 */
+  padding-bottom: 4rem; /* footer와의 간격 */
+}
+
+.service-item {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.service-item img {
+  /* width: 120px;
+  height: 120px; */
+  margin-bottom: 2rem;
+}
+
+.service-item h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.service-item p {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.card-section {
+  background-color: #ffffff;
+  padding: 4rem 0;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* footer가 main 콘텐츠와 겹치지 않도록 설정 */
+footer {
+  position: relative;
+  z-index: 10;
+}
