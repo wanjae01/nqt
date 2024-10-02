@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -37,10 +42,18 @@ const Login = () => {
     console.log('로그인 시도:', email, password);
   };
 
-  const handleGoogleLogin = () => {
+  const handleGoogleLogin = async() => {
     // Google 로그인 로직을 여기에 추가하세요
-    
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log(user);
+    } catch (error) {
+      console.error(error.message);
+    }
     console.log('Google 로그인 시도');
+
+    navigate("/");
   };
 
   return (
